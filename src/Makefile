@@ -243,9 +243,6 @@ endif
 
 ifeq ($(DEBUG),0)
 CFLAGS                  += -O2
-ifneq ($(UNAME),Darwin)
-LFLAGS                  += -s
-endif
 else
 ifeq ($(DEBUG),1)
 ifneq ($(UNAME),Darwin)
@@ -310,6 +307,7 @@ CFLAGS                  += -I$(DEPS_UNRAR_PATH)
 LFLAGS                  += -lstdc++
 endif
 
+CFLAGS                  += $(EXTRA_CFLAGS)
 ##
 ## Native compilation target
 ##
